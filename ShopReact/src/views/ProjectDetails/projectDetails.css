@@ -1,0 +1,151 @@
+#ProjectDetails {
+    display: flex;
+}
+
+#ProjectDetails .GovernoratesPart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 20vw;
+    background-color: rgb(255, 255, 255);
+    padding-top: 20vh;
+    padding-right: 2vw;
+    box-shadow: 0px 0px 7px 3px #8e691f31;
+    z-index: 100;
+}
+
+#ProjectDetails .GovernoratesPart h2 {
+    font-size: max(3.8vmin, 15px);
+}
+
+#ProjectDetails .GovernoratesPart .choosen {
+    color: #cf9116;
+}
+
+#ProjectDetails .GovernorateButton {
+    background: none;
+    color: black;
+    font-size: max(2.2vmin, 10px);
+}
+
+#ProjectDetails .projectTable {
+    margin-right: 20vw;
+    width: 80vw;
+    margin-bottom: 5vh;
+}
+
+#ProjectDetails .projectTableHeader {
+    height: 10vh;
+    display: flex;
+    margin-top: 12vh;
+    align-items: center;
+}
+
+#ProjectDetails .projectTableTitle {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: max(4vmin, 15px);
+    font-weight: 700;
+    color: #303030;
+}
+
+#ProjectDetails .projectTableHeader button {
+    background-color: #cf9116;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding: 1vh 1vw;
+    font-size: max(2vmin, 10px);
+}
+
+#ProjectDetails .projectTabelContent {
+    margin-right: 2vw;
+    margin-left: 2vw;
+    overflow-x: auto;
+
+}
+
+#ProjectDetails .projectTabelContent button {
+    padding: 0.5vh 1vw;
+}
+
+#ProjectDetails .projectTabelContent table {
+    background-color: #ffffffc8;
+    border-radius: 10px;
+    text-align: center;
+    border-collapse: collapse;
+    border: #000000;
+    width: 100%;
+}
+
+#ProjectDetails .projectTabelContent table .DONE {
+    font-weight: 600;
+    color: rgb(27, 114, 27);
+}
+
+#ProjectDetails .projectTabelContent table .REJECTED {
+    color: rgb(169, 22, 22);
+    font-weight: 600;
+
+}
+
+#ProjectDetails .table-cell {
+    border: 1px solid black;
+    white-space: nowrap;
+    padding: 0.5vh 0.5vw;
+    font-size: max(2vmin, 10px);
+}
+
+#ProjectDetails thead {
+    background-color: #cfcfcf;
+    color: #000000;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    width: 100vw;
+}
+@media screen and (max-width: 768px) {
+    #ProjectDetails {
+        display: block;
+    }
+
+    #ProjectDetails .projectTabelContent {
+        overflow-x: auto;
+    }
+
+    #ProjectDetails .GovernoratesPart {
+        position: static;
+        height: min-content;
+        width: 90vw;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10vh;
+        padding: 2vh 2vw;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #ProjectDetails .governoratesList {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+    }
+
+    #ProjectDetails .projectTable {
+        margin-right: 0;
+        width: 100vw;
+        padding-right: 2.5vw;
+        padding-left: 2.5vw;
+    }
+
+    #ProjectDetails .projectTableHeader {
+        margin-top: 2vh;
+        padding-right: 2.5vw;
+    }
+}

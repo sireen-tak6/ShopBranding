@@ -1,0 +1,54 @@
+#LoginForm {
+    background-color: #ffffffc8;
+    border-radius: 10px;
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: min-content;
+    padding: 4vh 5vw;
+    justify-items: center;
+    margin-top: 20vh;
+    box-shadow: 0px 0px 7px 3px #8e691f31;
+
+}
+
+#LoginForm .LoginTitle {
+    font-size: max(3.5vmin, 24px);
+    font-weight: 500;
+    white-space: nowrap;
+    margin-bottom: 4vh;
+    color: #cf9116;
+}
+
+#LoginForm .LoginField {
+    width: min-content;
+    margin-bottom: 4vh;
+
+}
+
+#LoginForm label {
+    margin-bottom: 1vh;
+    font-size: max(2.4vmin, 15px);
+    white-space: nowrap;
+
+}
+
+#LoginForm input {
+    height: 6vh;
+    width: 50vw;
+    max-width: 350px;
+}
+
+#LoginForm .LastField {
+    margin-bottom: 6vh;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #LoginForm input {
+        height: 6vh;
+        width: 60vw;
+    }
+
+}
