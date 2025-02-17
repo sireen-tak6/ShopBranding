@@ -123,7 +123,7 @@ class AuthController extends Controller
 
         // Fetch notifications for all users with related information and include the is_read status from the pivot table
         $notifications = Notification::whereHas('users', function ($query) use ($user) {
-            $query->where('users.id', $user->id) // Filter by the authenticated user
+            $user // Filter by the authenticated user
                   ->where('notification_user.is_read', false)->orWhere('notification_user.is_read', true); // Filter by is_read = false in the pivot table
         })->with(['project', 'governorate', 'creator'])->orderByDesc('created_at')->get();
 

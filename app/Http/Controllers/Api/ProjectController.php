@@ -129,18 +129,18 @@ class ProjectController extends Controller
             }
             $data['images'] = $uploadedImages;
         }
-        $user = Auth::user();
+        $authuser = Auth::user();
         $excelFile->update($data);
         $governorateArea = $excelFile->governorate->area;
-        $message = "تم تعديل المشروع '{$project->name}'-'{$project->code}' من قبل ('{$user->username}'-'{$user->phoneNumber}').";
-        $users = User::where(function ($query) use ($governorateArea) {
+        $message = "تم تعديل المشروع '{$project->name}'-'{$project->code}' من قبل ('{$authuser->username}'-'{$authuser->phoneNumber}').";
+        $users = User::where(function ($query) use ($governorateArea, $authuser) {
             $query->whereIn('type', ['Manager', 'Agency']);
         })
-            ->orWhere(function ($query) use ($governorateArea) {
+            ->orWhere(function ($query) use ($governorateArea, $authuser) {
                 $query->where('type', 'Delegate')
                     ->where('area', $governorateArea);
             })
-            ->whereNotNull('fcm_token')->get();
+            ->get();
         // Create the notification
         $notification = CustomNotification::create([
             'project_id' => $project->id,
@@ -155,8 +155,9 @@ class ProjectController extends Controller
         }
         // Send notification to each user
         foreach ($users as $user) {
-            $this->sendFirebaseNotification($user->fcm_token, 'تعديل على مشروع', "تم تعديل المشروع '{$project->name}'-'{$project->code}' من قبل ('{$user->username}'-'{$user->phoneNumber}')-('{$user->username}'.");
+            $user->fcm_token && $this->sendFirebaseNotification($user->fcm_token, 'تعديل على مشروع', "تم تعديل المشروع '{$project->name}'-'{$project->code}' من قبل ('{$authuser->username}'-'{$user->phoneNumber}')-('{$authuser->username}'.");
         }
+
         \Log::info("Project updated and notification sent.");
 
         return response(content: compact('data'));
