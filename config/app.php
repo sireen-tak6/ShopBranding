@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'shopbranding-production-55a5.up.railway.app'),
 
     /*
     |--------------------------------------------------------------------------
